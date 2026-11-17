@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/logo.png" alt="Uncharted Mod Manager" width="160">
+  <img src="images/logo.png" alt="Uncharted Mod Manager" width="520">
 </p>
 <h1 align="center">Uncharted Mod Manager</h1>
 <p align="center">
