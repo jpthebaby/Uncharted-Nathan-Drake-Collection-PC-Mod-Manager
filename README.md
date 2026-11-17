@@ -32,7 +32,6 @@
 - [Uninstall](#uninstall)
 - [Troubleshooting](#troubleshooting)
 - [FAQ](#faq)
-- [Making mods](#making-mods)
 - [Building from source](#building-from-source)
 - [Credits and disclaimer](#credits-and-disclaimer)
 
@@ -64,7 +63,6 @@ Everything ships as **one exe**.
 - **Mod updates**: change a mod's files while it is enabled, press **REFRESH**, and the new version is copied in.
 - **Safe while playing**: nothing is changed while the game is running.
 - **LAUNCH GAME**: applies your mods and starts the game.
-- **Blender add-on ready**: mods packaged with the JP Uncharted Modding add-on (**Package as Mod**) drop straight in. See [Making mods](#making-mods).
 
 ## Requirements
 
@@ -144,7 +142,7 @@ A new mod starts **disabled**.
 
 ## mod.ini
 
-Optional (the folder name is used without it). The Blender add-on writes it for you:
+Every mod should have a `mod.ini` that looks exactly like this. Without it, the card only shows the folder name and the details stay empty, so always add one:
 
 ```
 Name : CJ Mod
@@ -163,7 +161,7 @@ Version : 1.0
 | Version | Card and details |
 | Character | Optional: the category filter |
 
-One field per line, `Field : value`. A `mod.json` with the same fields also works.
+One field per line, written as `Field : value`. The `Game` line is required: it must match the folder the mod is in.
 
 ![Details](images/manager_details.png)
 
@@ -210,7 +208,7 @@ switch OFF  mods\_manager\backup\<path> ──copy──> game file          (by
 |---|---|
 | "Close the game first" | The game is running: its files are in use. Close it and switch the mod again. |
 | My mod is not in the list | Check that it is in `mods\Uncharted N`, and that the `Game` line of its `mod.ini` names the same game. Press **REFRESH**. |
-| "...was installed by the Blender add-on" | That game file was installed by an older add-on version. Restore it there first, then enable the mod here. |
+| "...was installed by another tool" | That game file was replaced by another tool. Restore it with that tool first, then enable the mod here. |
 | "...is not the original file" | The game file was changed outside the manager. Put the original back (or verify / reinstall the game), then enable the mod. |
 | "...is not a game file" | A file in the mod has a name the game does not use. Use the game's own folder layout (`Game\...`). |
 | The mod shows but nothing changes in game | Make sure it is switched on (it has a number) and that no later mod replaces the same file. |
@@ -236,14 +234,6 @@ The next time the manager runs, its files are restored from the backup.
 
 **Is it safe online?**
 The manager does not touch saves or online features. Use mods in single player.
-
-## Making mods
-
-Mods for Drake, other characters and weapons are made in Blender with the **JP Uncharted Modding** add-on:
-extract a character, edit it or replace it with your own model, **Build**, then **Package as Mod**. The package goes
-straight into `mods\Uncharted N\<your mod>` with its `mod.ini`, ready for the manager.
-
-**[YouTube](https://www.youtube.com/@jpthehero)** · **[Patreon](https://www.patreon.com/c/gamerjp)** · **[Discord](https://discord.gg/uBTutBA8VX)**
 
 ## Building from source
 
